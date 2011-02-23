@@ -19,6 +19,7 @@ exports.modules = function (name) {
             .filter(function (lib) {
                 return lib.match(/\.js$/)
                     && path.resolve(libdir, lib) !== main
+                    && !path.basename(lib).match(/^\./)
                 ;
             })
             .forEach(function (lib) {
@@ -33,6 +34,7 @@ exports.modules = function (name) {
             .filter(function (lib) {
                 return lib.match(/\.js$/)
                     && path.resolve(pkgdir + '/lib', lib) !== main
+                    && !path.basename(lib).match(/^\./)
                 ;
             })
             .forEach(function (lib) {
