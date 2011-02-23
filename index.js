@@ -57,6 +57,7 @@ exports.modules = function (name) {
     fs.readdirSync(pkgdir)
         .filter(function (file) {
             return file.match(/\.js$/)
+                && !path.basename(file).match(/^\./)
                 && bins.indexOf(pkgdir + '/' + file) < 0
                 && pkgdir + '/' + file !== main
             ;
