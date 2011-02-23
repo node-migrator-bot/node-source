@@ -24,7 +24,8 @@ exports.modules = function (name) {
             })
             .forEach(function (lib) {
                 var src = fs.readFileSync(lib);
-                var p = lib.slice(libdir.length);
+                var p = lib.slice(libdir.length)
+                    .replace(/\.js$/,'');
                 modules[name + '/lib' + p] = src;
             })
         ;
@@ -39,7 +40,8 @@ exports.modules = function (name) {
             })
             .forEach(function (lib) {
                 var src = fs.readFileSync(lib);
-                var p = lib.slice((pkgdir + '/lib').length);
+                var p = lib.slice((pkgdir + '/lib').length)
+                    .replace(/\.js$/,'');
                 modules[name + '/lib' + p] = src;
             })
         ;
