@@ -30,7 +30,7 @@ exports.modules = function (name) {
             })
         ;
     }
-    else if (path.existsSync(pkgdir + '/lib')) {
+    else if (fs.existsSync(pkgdir + '/lib')) {
         find.sync(pkgdir + '/lib')
             .filter(function (lib) {
                 return lib.match(/\.js$/)
@@ -52,7 +52,7 @@ exports.modules = function (name) {
             return bin && (pkgdir + '/' + bin)
         })
         .filter(function (bin) {
-            return path.existsSync(bin)
+            return fs.existsSync(bin)
         })
     ;
     
